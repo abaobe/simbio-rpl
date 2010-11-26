@@ -1,9 +1,11 @@
 <?php
+
 // Set judul halaman yang bakal tampil di titlebar browser
 $judul_halaman = "Home";
 
 // Ambil header...
 include 'header.php';
+
 ?>
 
 <div id="maincontent">
