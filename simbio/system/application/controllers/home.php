@@ -68,12 +68,33 @@ class Home extends Controller {
 
     }
 
-    function kritik_saran()
+    function kritik_saran($halaman = 0)
     {
         $data = array();
         $data['judul'] = "Kritik dan Saran";
         $data['judul_konten'] = "Kritik dan Saran";
         $data['template_konten'] = "template_krisan";
+
+        $this->load->model('M_krisan');
+        $this->load->library('typography');
+        $this->load->library('pagination');
+
+        $mulai = $this->uri->segment(3, 0);
+        $limit_per_halaman = 10;
+
+        $data['daftar_krisan'] = $this->M_krisan->get_entri_publik($mulai, $limit_per_halaman);
+
+        $paging['base_url']     = site_url('home/kritik_saran');
+        $paging['total_rows']   = $this->M_krisan->jumlah_data_hasil;
+        $paging['per_page']     = $limit_per_halaman;
+        $paging['uri_segment']  = 3;
+        $paging['next_link'] 	= 'Berikutnya &raquo;';
+        $paging['prev_link'] 	= '&laquo; Sebelumnya ';
+        $paging['first_link']   = '&lsaquo; Awal';
+        $paging['last_link']   = 'Akhir &rsaquo;';
+
+        $this->pagination->initialize($paging);
+	$data['page_links'] = $this->pagination->create_links();
 
         $this->load->vars($data);
         $this->load->view('template');
