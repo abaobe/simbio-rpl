@@ -70,6 +70,7 @@ class Home extends Controller {
 
     function kritik_saran($halaman = 0)
     {
+
         $data = array();
         $data['judul'] = "Kritik dan Saran";
         $data['judul_konten'] = "Kritik dan Saran";
@@ -78,6 +79,49 @@ class Home extends Controller {
         $this->load->model('M_krisan');
         $this->load->library('typography');
         $this->load->library('pagination');
+        $this->load->library('form_validation');
+
+        // pemroses posting
+
+        if ($this->input->post('submit'))
+        {
+            // validasi dulu
+
+            $this->form_validation->set_rules('input_nama', 'Nama', 'trim|required');
+            $this->form_validation->set_rules('input_email', 'Email', 'trim|valid_email');
+            $this->form_validation->set_rules('input_telepon', 'Telepon', 'trim|required');
+            $this->form_validation->set_rules('input_alamat', 'Alamat', 'trim|required');
+            $this->form_validation->set_rules('input_pesan', 'Pesan', 'trim|required');
+
+            if ($this->form_validation->run() == FALSE)
+            {
+                //redirect('home/kritik_saran#form');
+            }
+            else
+            {
+                // kalo valid
+                // inputs - unregistered user
+
+                $udata = array();
+                $udata['id_user']           = 0;
+                $udata['nama']              = $this->input->post('input_nama', TRUE);
+                $udata['no_kontak']         = $this->input->post('input_telepon', TRUE);
+                $udata['alamat']            = $this->input->post('input_alamat', TRUE);
+                $udata['email']             = $this->input->post('input_email', TRUE);
+                $udata['pesan']             = $this->input->post('input_pesan', TRUE);
+                $udata['tanggal_posting']   = date('Y-m-d H:i:s');
+                $udata['approved']          = 0;
+                $udata['ip']                = $_SERVER['REMOTE_ADDR'];
+
+                if ($this->M_krisan->tambahkan($udata)) redirect('home/kritik_saran_ok');
+
+            }
+
+        }
+
+
+        // tampilkan
+
 
         $mulai = $this->uri->segment(3, 0);
         $limit_per_halaman = 10;
@@ -99,7 +143,18 @@ class Home extends Controller {
         $this->load->vars($data);
         $this->load->view('template');
 
+    }
+
+    function kritik_saran_ok()
+    {
+        $data['success'] = TRUE;
+        $data['judul'] = "Kritik dan Saran";
+        $data['template_konten'] = "template_krisan_post";
+
+        $this->load->vars($data);
+        $this->load->view('template');
 
     }
+
 
 }
