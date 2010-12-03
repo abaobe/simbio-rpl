@@ -79,7 +79,7 @@ include 'header.php';
                                 latihan masing-masing adalah 100</strong>)
                         </p>
                         <hr/>
-                        <p style="font-size: 20px">Total nilai Anda: 2700</p>
+                        <p style="font-size: 20px">Total nilai Anda: <span style="color: #FF6600; font-weight: bold">2700</span></p>
                         <p>Chapter terakhir: chapter 1 <br/>
                            Latihan terakhir: <a href="#">pjj0213</a></p>
                     </div>
