@@ -39,122 +39,25 @@ include '../header.php';
                         <br/>
                         <div class="postwrap" id="form">
                             <div class="copy">
-                                <table>
-                                    <tr>
-                                        <td width="150">Nama file yang diminta </td>
-                                        <td>: <pre style="display: inline; font-weight: bold">pjj0101.c</pre></td>
+                                <table width="100%">
+                                <?php for($i = 1; $i <= 10; $i++) : ?>                                
+                                    <tr style="background-color: <?php echo $i%2 ? '#EEE' : '#FFF' ?>;">
+                                        <td width="150"><code style="font-weight: bold">&nbsp;pjj01<?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?>.c</code></td>
+                                        <td style="padding: 6px 0px">: 
+                                            <input type="file" size="30" id="pjj010<?php echo $i ?>"/>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>File</td>
-                                        <td style="padding: 6px 0px">: <input type="file" size="30" /></td>
-                                    </tr>
+                                <?php endfor; ?>
                                 </table>
                                 <hr/>
-                                <table>
-                                    <tr>
-                                        <td width="150">Nama file yang diminta </td>
-                                        <td>: <pre style="display: inline; font-weight: bold">pjj0102.c</pre></td>
-                                    </tr>
-                                    <tr>
-                                        <td>File</td>
-                                        <td style="padding: 6px 0px">: <input type="file" size="30" /></td>
-                                    </tr>
-                                </table>
-                                <hr/>
-                                <table>
-                                    <tr>
-                                        <td width="150">Nama file yang diminta </td>
-                                        <td>: <pre style="display: inline; font-weight: bold">pjj0103.c</pre></td>
-                                    </tr>
-                                    <tr>
-                                        <td>File</td>
-                                        <td style="padding: 6px 0px">: <input type="file" size="30" /></td>
-                                    </tr>
-                                </table>
-                                <hr/>
-                                <table>
-                                    <tr>
-                                        <td width="150">Nama file yang diminta </td>
-                                        <td>: <pre style="display: inline; font-weight: bold">pjj0104.c</pre></td>
-                                    </tr>
-                                    <tr>
-                                        <td>File</td>
-                                        <td style="padding: 6px 0px">: <input type="file" size="30" /></td>
-                                    </tr>
-                                </table>
-                                <hr/>
-                                <table>
-                                    <tr>
-                                        <td width="150">Nama file yang diminta </td>
-                                        <td>: <pre style="display: inline; font-weight: bold">pjj0105.c</pre></td>
-                                    </tr>
-                                    <tr>
-                                        <td>File</td>
-                                        <td style="padding: 6px 0px">: <input type="file" size="30" /></td>
-                                    </tr>
-                                </table>
-                                <hr/>
-                                <table>
-                                    <tr>
-                                        <td width="150">Nama file yang diminta </td>
-                                        <td>: <pre style="display: inline; font-weight: bold">pjj0106.c</pre></td>
-                                    </tr>
-                                    <tr>
-                                        <td>File</td>
-                                        <td style="padding: 6px 0px">: <input type="file" size="30" /></td>
-                                    </tr>
-                                </table>
-                                <hr/>
-                                <table>
-                                    <tr>
-                                        <td width="150">Nama file yang diminta </td>
-                                        <td>: <pre style="display: inline; font-weight: bold">pjj0107.c</pre></td>
-                                    </tr>
-                                    <tr>
-                                        <td>File</td>
-                                        <td style="padding: 6px 0px">: <input type="file" size="30" /></td>
-                                    </tr>
-                                </table>
-                                <hr/>
-                                <table>
-                                    <tr>
-                                        <td width="150">Nama file yang diminta </td>
-                                        <td>: <pre style="display: inline; font-weight: bold">pjj0108.c</pre></td>
-                                    </tr>
-                                    <tr>
-                                        <td>File</td>
-                                        <td style="padding: 6px 0px">: <input type="file" size="30" /></td>
-                                    </tr>
-                                </table>
-                                <hr/>
-                                <table>
-                                    <tr>
-                                        <td width="150">Nama file yang diminta </td>
-                                        <td>: <pre style="display: inline; font-weight: bold">pjj0109.c</pre></td>
-                                    </tr>
-                                    <tr>
-                                        <td>File</td>
-                                        <td style="padding: 6px 0px">: <input type="file" size="30" /></td>
-                                    </tr>
-                                </table>
-                                <hr/>
-                                <table>
-                                    <tr>
-                                        <td width="150">Nama file yang diminta </td>
-                                        <td>: <pre style="display: inline; font-weight: bold">pjj0110.c</pre></td>
-                                    </tr>
-                                    <tr>
-                                        <td>File</td>
-                                        <td style="padding: 6px 0px">: <input type="file" size="30" /></td>
-                                    </tr>
-                                </table>
-                                <hr/>
+                                <form action="kumpul-latihan/upload-ch1-2.php">
                                 <table>
                                     <tr>
                                         <td width="150" style="color: #888">Klik untuk mengupload &raquo;</td>
-                                        <td>&nbsp;&nbsp;<input type="submit" class="button" value="Upload"/></td>
+                                        <td>&nbsp;&nbsp;<input id="upload_button" type="submit" class="button" value="Upload"/></td>
                                     </tr>
                                 </table>
+                                </form>
                                 <br/>
                                 <br/>
                             </div>
@@ -171,7 +74,7 @@ include '../header.php';
 
         </div>
 
-        <div class="clear"></div>
+        <div class="clear" style="display: none" id="trash"></div>
 
     </div>
 </div>

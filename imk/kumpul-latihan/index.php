@@ -27,7 +27,6 @@ include '../header.php';
     ul.soal a:hover {
         background: url("images/post-bg0.png") repeat-x scroll left bottom #FFFFFF;
         border-color: #DDD;
-        text-decoration: none;
     }
 
 </style>

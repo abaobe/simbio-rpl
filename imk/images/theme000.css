@@ -761,6 +761,17 @@ textarea:focus, input[type="text"]:focus {
     cursor: pointer;
 }
 
+.disabledbutton {
+    border: 1px solid #CCC;
+    background: #e5e5e5 none;
+    margin:0;
+    padding: 5px 5px 4px;
+    font-family: arial, helvetica;
+    font-weight: bold;
+    color: #AAA;
+    text-shadow: #fff 0 1px 0;
+}
+
 #cformsform ol {list-style-type: none;}
 
 /* sidebar */

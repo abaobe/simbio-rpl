@@ -50,6 +50,34 @@ $(function(){
 
 });
 
+function simulasiUpload(){
+
+    var filename = $('#file_input').val();
+
+    if (filename != ''){
+        if (filename != 'pjj0101.c') {
+            $('#info_box').hide();
+            $('#error_box').show();
+        } else {
+            $('#ajax_animator').show();
+            $('#upload_button').val('Sedang mengupload...');
+            $('#upload_button').attr('disabled', 'disabled');
+            $('#upload_button').removeClass('button');
+            $('#upload_button').addClass('disabledbutton');
+            $('#file_input').attr('disabled', 'disabled');
+
+            $('#source_container').load('kumpul-latihan/soal1-sc.php', function(){
+                $('#form_upload').remove();
+                $('#info_box').hide();
+                $('#error_box').hide();
+                $('#source_container').fadeIn('slow');
+            });
+
+        }
+    }
+
+}
+
 </script>
 
 <div id="maincontent">
@@ -155,24 +183,31 @@ main()
                         <div class="postwrap" id="form">
                             <div class="copy"><h5>Form upload</h5></div>
                             <div class="copy">
-                                <div style="background-color: #fff9d7; border: 1px solid #e2c822; color: #333333; padding: 10px;">
+                                <div style="background-color: #fff9d7; border: 1px solid #e2c822; color: #333333; padding: 10px; margin-bottom: 15px" id="info_box">
                                     Anda sudah pernah mengupload latihan ini. Mengupload ulang latihan akan menyebabkan latihan yang lama ditimpa dengan yang baru.
                                 </div>
-                                <br/>
-                                <table>
+                                <div style="background-color: #ffebe8; border: 1px solid #dd3c10; color: #333333; padding: 10px; margin-bottom: 15px; display: none" id="error_box">
+                                    Kesalahan: nama file yang akan diupload harus sesuai (<code style="font-weight: bold">pjj0101.c</code>).
+                                </div>
+                                <table id="form_upload">
                                     <tr>
                                         <td width="150">Nama file yang diminta </td>
                                         <td>: <pre style="display: inline; font-weight: bold">pjj0101.c</pre></td>
                                     </tr>
                                     <tr>
                                         <td>File</td>
-                                        <td style="padding: 6px 0px">: <input type="file" size="30" /></td>
+                                        <td style="padding: 6px 0px">: <input type="file" size="30" id="file_input" /></td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td>&nbsp;&nbsp;<input type="submit" class="button" value="Upload"/></td>
+                                        <td>
+                                            &nbsp;&nbsp;<input id="upload_button" type="button" class="button" value="Upload" onclick="simulasiUpload();"/>
+                                            &nbsp;&nbsp;<img src="images/ajax-loader.gif" alt="" style="vertical-align: middle; display: none" id="ajax_animator"/>
+                                        </td>
                                     </tr>
                                 </table>
+
+                                <div id="source_container" style="display: none"></div>
 
                                 <br/>
                                 <br/>

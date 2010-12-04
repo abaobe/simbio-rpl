@@ -1,3 +1,12 @@
+<?php usleep(5000000); ?>
+
+<div style="background-color: #fff9d7; border: 1px solid #e2c822; color: #333333; padding: 10px; margin-bottom: 15px" id="info_box">
+    Program berhasil diupload dan di-<em>compile</em>.
+    Anda akan menerima notifikasi saat program Anda sudah dinilai.
+    Berikut ini source code program yang Anda upload.
+</div>
+
+<div style="padding: 5px; border: 1px solid #DDD;">
 <pre style='color:#141312;background-color:#ffffff;'>
 <span style='color:#006e28;'>#include </span><span style='color:#006e28;'>&lt;stdio.h&gt;</span>
 
@@ -9,3 +18,4 @@
 
 }
 </pre>
+</div>
