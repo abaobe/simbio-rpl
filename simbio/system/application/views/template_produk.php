@@ -21,7 +21,8 @@
                 <br/>
                 <div class="price"><strong>Harga:</strong> <span class="red">Rp <?php echo number_format($produk['harga_produk'], 0, ',', '.') ?></span></div>
                 <div class="price"><strong>Stok:</strong> <span class="red"><?php echo $produk['stok_produk'] ?> buah</span></div>
-                <a href="#" class="more"><img src="images/order_now.gif" alt="" title="" border="0" /></a>
+                <?php echo anchor("keranjang_belanja/tambah/{$produk['id_produk']}", img(array('src' => "images/order_now.gif", 'border' => '0')), array('class' => 'more')) ?>
+                
                 <div class="clear"></div>
             </div>
 

@@ -39,7 +39,7 @@
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database','session','email','validation');
+$autoload['libraries'] = array('database','session','email','validation','cart');
 
 
 /*
@@ -108,7 +108,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('M_produk');
+$autoload['model'] = array('M_produk', 'M_keranjang');
 
 
 

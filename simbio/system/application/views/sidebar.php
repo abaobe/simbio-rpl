@@ -1,20 +1,21 @@
 <div class="cart">
     <div class="title"><span class="title_icon"><img src="images/cart2.jpg" alt="" title="" /></span>Keranjang</div>
-    <div class="home_cart_content">
-        3 x items | <span class="red">TOTAL: 100$</span>
+    <div>
+        <?php echo $this->cart->total_items(); ?> item
+
+        <ul>
+        <?php foreach ($this->cart->contents() as $items): ?>
+            <li>
+                <?php echo $items['qty']; ?> x
+                <?php echo anchor("produk/detail/{$items['id']}/".url_title($items['name']), $items['name']) ?>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+        
+        <span class="red">TOTAL: Rp <?php echo ($this->cart->total()) ? $this->cart->format_number($this->cart->total()) : "0"; ?></span>
+        <br/>
+        <span class="red"><strong><?php echo anchor('keranjang_belanja', 'Lihat belanjaan &raquo;') ?></strong></span>
     </div>
-    <a href="cart.html" class="view_cart">lihat keranjang</a>
-
-</div>
-
-
-
-
-<div class="title"><span class="title_icon"><img src="images/simbio.png" alt="" title="" /></span>Tentang SIMBIO</div>
-<div class="about">
-    <p>
-        SIMBIO merupakan perangkat lunak berbasis web yang dapat menjadi perantara bagi penjual dan calon pelanggan bibit tanaman hias
-    </p>
 
 </div>
 
@@ -47,20 +48,4 @@
 
 </div>
 
-<div class="right_box">
-
-    <!--
-    <div class="title"><span class="title_icon"><img src="images/kategori.png" alt="" title="" /></span>Kategori</div>
-
-    <ul class="list">
-        <li><a href="#">Tanaman</a></li>
-        <li><a href="#">Tanaman Hias</a></li>
-    </ul>
-    -->
-
-    <div class="title"><span class="title_icon"><img src="images/partners.jpg" alt="" title="" /></span>Pengembang</div>
-
-    <h4>SIMBIO Team</h4>
-
-</div>
 

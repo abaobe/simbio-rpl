@@ -8,7 +8,7 @@ margin:0px auto auto auto;
 color:#000000;
 }
 a{
-color:#456645;
+color:#E73025;
 }
 
 .clear{
@@ -22,7 +22,8 @@ line-height:19px;
 }
 p.details, .left_content p, .left_content ul, .left_content ol{
 padding:5px 15px 5px 15px;
-font-size:11px;
+font-size:13px;
+
 }
 p.details_cart{
 clear:both;
@@ -43,19 +44,19 @@ background-color:#FFFFFF;
 }
 .header{
 width:900px;
-height:473px;
+height:300px;
 background:url(images/header1.jpg) no-repeat center;
 }
 .logo{
-padding:30px 0 40px 555px;
+padding:30px 0 40px 600px;
 }
 /*-----------------------------menu-------------------*/
 #menu{
 width:900px;
 height:30px;
 float:left;
-margin-left:50px;
-padding:43px 0 0 0px;
+margin-left:60px;
+padding:0px 0 0 0px;
 }
 #menu ul{
 display:block;
@@ -71,8 +72,7 @@ height:0px;
 }
 #menu ul li a{
 display:block;
-margin:67px 4px 0 0px;
-_margin:0 2px 0 2px;
+margin-top: 30px;
 float:left;
 text-decoration:none;
 text-align:center;
@@ -108,7 +108,7 @@ padding:2px 2px 0 2px;
 .center_content{
 width:900px;
 padding:0px 0 0 0;
-background:url(images/center_bg.gif) repeat-y center;
+background:url(images/center_bg1.gif) repeat-y center;
 }
 .left_content{
 width:490px;
@@ -348,10 +348,7 @@ border:1px #990000 solid;
 /*------------------------cart---------------------*/
 .cart{
 width:337px;
-float:left;
-height:40px;
-margin:0px 0 30px 0;
-padding:0 0 30px 0;
+margin:0px 0 10px 0;
 }
 .home_cart_content{
 float:left;
@@ -367,7 +364,7 @@ color:#990000;
 }
 /*---------------contact_form------------------*/
 .contact_form{
-width:355px;
+width:395px;
 float:left;
 padding:25px;
 margin:20px 0 0 15px;
@@ -376,8 +373,6 @@ border:1px #DFD1D2 dashed;
 position:relative;
 }
 .form_row{
-width:335px;
-_width:355px;
 clear:both;
 padding:10px 0 10px 0;
 _padding:5px 0 5px 0;
@@ -392,7 +387,7 @@ padding:4px 5px 0 0;
 color: #333333;
 }
 input.contact_input{
-width:253px;
+width:290px;
 height:18px;
 background-color:#fff;
 color:#999999;
@@ -473,9 +468,14 @@ line-height:20px;
 }
 /*--------------cart_table-------------*/
 .cart_table{
-width:440px;
+width:445px;
 border:1px #CCCCCC solid;
-text-align:center;
+border-collapse: collapse;
+margin-left: 15px;
+}
+.cart_table td, .cart_table th{
+    border: 1px #CCCCCC solid;
+    padding: 10px;
 }
 tr.cart_title{
 background-color:#DFDFDF;
