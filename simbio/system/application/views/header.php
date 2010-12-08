@@ -9,6 +9,6 @@
         <li><a href="index.php/akun" class="btn">Akun</a></li>
         <li><a href="index.php/artikel" class="btn">Artikel</a></li>
         <li><a href="index.php/home/kritik_saran" class="btn">Kritik & Saran</a></li>
-        <li><a href="index.php/home/tentang-kami" class="btn">Tentang kami</a></li>
+        <li><a href="index.php/home/tentang_kami" class="btn">Tentang kami</a></li>
     </ul>
 </div>

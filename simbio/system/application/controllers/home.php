@@ -100,18 +100,35 @@ class Home extends Controller {
             else
             {
                 // kalo valid
-                // inputs - unregistered user
 
-                $udata = array();
-                $udata['id_user']           = 0;
-                $udata['nama']              = $this->input->post('input_nama', TRUE);
-                $udata['no_kontak']         = $this->input->post('input_telepon', TRUE);
-                $udata['alamat']            = $this->input->post('input_alamat', TRUE);
-                $udata['email']             = $this->input->post('input_email', TRUE);
-                $udata['pesan']             = $this->input->post('input_pesan', TRUE);
-                $udata['tanggal_posting']   = date('Y-m-d H:i:s');
-                $udata['approved']          = 0;
-                $udata['ip']                = $_SERVER['REMOTE_ADDR'];
+                if (!$this->session->userdata('id_user')) 
+                {
+                    // inputs - unregistered user
+                    $udata = array();
+                    $udata['id_user'] = 0;
+                    $udata['nama'] = $this->input->post('input_nama', TRUE);
+                    $udata['no_kontak'] = $this->input->post('input_telepon', TRUE);
+                    $udata['alamat'] = $this->input->post('input_alamat', TRUE);
+                    $udata['email'] = $this->input->post('input_email', TRUE);
+                    $udata['pesan'] = $this->input->post('input_pesan', TRUE);
+                    $udata['tanggal_posting'] = date('Y-m-d H:i:s');
+                    $udata['approved'] = 0;
+                    $udata['ip'] = $_SERVER['REMOTE_ADDR'];
+                }
+                else
+                {
+                    // inputs - registered user
+                    $udata = array();
+                    $udata['id_user'] = $this->session->userdata('id_user');
+                    $udata['nama'] = $this->input->post('input_nama', TRUE);
+                    $udata['no_kontak'] = $this->input->post('input_telepon', TRUE);
+                    $udata['alamat'] = $this->input->post('input_alamat', TRUE);
+                    $udata['email'] = $this->input->post('input_email', TRUE);
+                    $udata['pesan'] = $this->input->post('input_pesan', TRUE);
+                    $udata['tanggal_posting'] = date('Y-m-d H:i:s');
+                    $udata['approved'] = 1;
+                    $udata['ip'] = $_SERVER['REMOTE_ADDR'];
+                }
 
                 if ($this->M_krisan->tambahkan($udata)) redirect('home/kritik_saran_ok');
 
@@ -154,6 +171,15 @@ class Home extends Controller {
         $this->load->vars($data);
         $this->load->view('template');
 
+    }
+
+    function tentang_kami()
+    {
+        $data['judul'] = "Tentang Kami";
+        $data['template_konten'] = "template_about";
+
+        $this->load->vars($data);
+        $this->load->view('template');
     }
 
 

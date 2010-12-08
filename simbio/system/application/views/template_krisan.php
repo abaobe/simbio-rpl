@@ -52,6 +52,8 @@
 
         <?php echo validation_errors(); ?>
 
+        <?php if(!$this->session->userdata('id_user')) : ?>
+
         <div class="form_row">
             <label class="contact"><strong>* Nama</strong></label>
             <input type="text" class="contact_input" name="input_nama" value="<?php echo set_value('input_nama') ?>"/>
@@ -75,6 +77,19 @@
             <input type="text" class="contact_input" name="input_alamat" value="<?php echo set_value('input_alamat') ?>" />
         </div>
 
+        <?php else : ?>
+
+        <div class="form_row">
+            <label class="contact">&nbsp;</label>
+            <p><strong><?php echo $this->session->userdata('nama_lengkap') ?></strong></p>
+
+            <input type="hidden" name="input_nama" value="<?php echo $this->session->userdata('nama_lengkap') ?>"/>
+            <input type="hidden" name="input_email" value="<?php echo $this->session->userdata('email') ?>" />
+            <input type="hidden" name="input_telepon" value="<?php echo $this->session->userdata('no_telepon') ?>" />
+            <input type="hidden" name="input_alamat" value="<?php echo $this->session->userdata('alamat') ?>" />
+        </div>
+
+        <?php endif; ?>
 
         <div class="form_row">
             <label class="contact"><strong>* Pesan</strong></label>
