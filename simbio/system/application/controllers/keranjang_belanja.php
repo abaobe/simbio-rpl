@@ -39,6 +39,12 @@ class Keranjang_belanja extends Controller {
             'pic' => $produk['gambar_produk_1']
         );
 
+        // kalo login dan berdiskon
+        if($this->session->userdata('id_user') && $produk['diskon'] != 0)
+        {
+            $data_produk['price'] = $produk['harga_diskon'];
+        }
+
         $this->cart->insert($data_produk);
 
         redirect('keranjang_belanja');

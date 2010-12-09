@@ -117,6 +117,7 @@ class Akun extends Controller {
 
 
         $data['judul'] = "Akun - Login";
+        $data['judul_konten'] = "Login";
         $data['template_konten'] = 'template_akun_login';
 
         $this->load->vars($data);
@@ -125,13 +126,10 @@ class Akun extends Controller {
 
     function logout()
     {
-        // jangan logout kalo belom login
-        if(!$this->session->userdata('id_user'))
-            redirect('akun/login');
-        
         $this->session->sess_destroy();
 
         $data['judul'] = "Akun - Logout";
+        $data['judul_konten'] = "Anda telah logout";
         $data['template_konten'] = 'template_akun_logout';
 
         $this->load->vars($data);
@@ -254,6 +252,10 @@ class Akun extends Controller {
 
     function detail_pesanan($id_pesanan)
     {
+        // jangan ke sini kalo belom login
+        if(!$this->session->userdata('id_user'))
+            redirect('akun/login');
+
         $this->load->model('M_pesanan');
 
         $data['daftar_produk_pesanan'] = $this->M_pesanan->get_detail_pesanan($id_pesanan);

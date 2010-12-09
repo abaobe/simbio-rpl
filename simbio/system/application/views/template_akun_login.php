@@ -1,5 +1,5 @@
 <div class="title"><span class="title_icon"><img src="images/bullet1.gif" alt="" title="" /></span>
-    Login
+<?php echo $judul_konten ?>
 </div>
 
 <div class="middle" style="margin: 10px 20px 0px 10px">
@@ -8,7 +8,7 @@
 
             <div style="background: none repeat scroll 0% 0% rgb(247, 247, 247); border: 1px solid rgb(221, 221, 221); padding: 10px; min-height: 210px;">
                 <h3>Silakan login terlebih dahulu</h3>
-                <form id="login" enctype="multipart/form-data" method="post" action="">
+                <?php echo form_open('akun/login'); ?>
                     <span class="red"><?php if(isset($error)) echo $error; ?></span>
                     <br/>
                     <br/>

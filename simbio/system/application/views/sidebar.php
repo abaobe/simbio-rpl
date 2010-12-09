@@ -33,32 +33,50 @@
 
 </div>
 
+<?php if($this->session->userdata('id_user')) : ?>
 <div class="right_box">
 
     <div class="title"><span class="title_icon"><img src="images/promosi.jpg" alt="" title="" /></span>Promosi</div>
-    <div class="new_prod_box">
-        <a href="details.html">nama produk</a>
-        <div class="new_prod_bg">
-            <span class="new_icon"><img src="images/promo_icon.gif" alt="" title="" /></span>
-            <a href="details.html"><img src="images/thumb1.gif" alt="" title="" class="thumb" border="0" /></a>
-        </div>
-    </div>
 
-    <div class="new_prod_box">
-        <a href="details.html">nama produk</a>
-        <div class="new_prod_bg">
-            <span class="new_icon"><img src="images/promo_icon.gif" alt="" title="" /></span>
-            <a href="details.html"><img src="images/thumb2.gif" alt="" title="" class="thumb" border="0" /></a>
-        </div>
-    </div>
+    <?php
 
+    $produk_diskon = $this->M_produk->get_produk_berdiskon();
+
+    foreach ($produk_diskon as $produk) :
+
+    ?>
     <div class="new_prod_box">
-        <a href="details.html">nama produk</a>
+        <?php echo anchor("produk/detail/{$produk['id_produk']}/".url_title($produk['nama_produk']), $produk['nama_produk']) ?>
         <div class="new_prod_bg">
             <span class="new_icon"><img src="images/promo_icon.gif" alt="" title="" /></span>
-            <a href="details.html"><img src="images/thumb3.gif" alt="" title="" class="thumb" border="0" /></a>
+            <br style="line-height: 8px"/>
+            <?php echo anchor("produk/detail/{$produk['id_produk']}/".url_title($produk['nama_produk']), img(array('src' => "images/photos/{$produk['gambar_produk_1']}", 'width' => '87', 'height' => '93', 'border' => '0'))) ?>
         </div>
     </div>
+    <?php endforeach; ?>
+
+</div>
+<?php endif; ?>
+
+<div class="right_box">
+
+    <div class="title"><span class="title_icon"><img src="images/promosi.jpg" alt="" title="" /></span>Produk terlaris</div>
+
+    <?php
+
+    $produk_terlaris = $this->M_statistik->get_produk_terlaris(3);
+
+    foreach ($produk_terlaris as $produk) :
+
+    ?>
+    <div class="new_prod_box">
+        <?php echo anchor("produk/detail/{$produk['id_produk']}/".url_title($produk['nama_produk']), $produk['nama_produk']) ?>
+        <div class="new_prod_bg">
+           <br style="line-height: 8px"/>
+           <?php echo anchor("produk/detail/{$produk['id_produk']}/".url_title($produk['nama_produk']), img(array('src' => "images/photos/{$produk['gambar_produk_1']}", 'width' => '87', 'height' => '93', 'border' => '0'))) ?>
+        </div>
+    </div>
+    <?php endforeach; ?>
 
 </div>
 

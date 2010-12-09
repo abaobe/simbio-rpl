@@ -25,7 +25,18 @@
             <div class="box_center">
                 <div class="prod_title"><?php echo anchor("produk/detail/{$produk['id_produk']}/".url_title($produk['nama_produk']), $produk['nama_produk']) ?></div>
                 <br/>
-                <div class="price"><strong>Harga:</strong> <span class="red">Rp <?php echo number_format($produk['harga_produk'], 0, ',', '.') ?></span></div>
+                <?php if($this->session->userdata('id_user') && $produk['diskon'] != 0) : ?>
+                <div class="price"><strong>Diskon:</strong> <span class="red"><?php echo $produk['diskon'] ?>%</span></div>
+                <?php endif; ?>
+                <div class="price">
+                    <strong>Harga:</strong>
+                    <?php if($this->session->userdata('id_user') && $produk['diskon'] != 0) : // kalo udah login, kasih harga diskon ?>
+                    <span class="red" style="color: #777;"><strike>Rp <?php echo number_format($produk['harga_produk'], 0, ',', '.') ?></strike></span>
+                    <span class="red">Rp <?php echo number_format($produk['harga_diskon'], 0, ',', '.') ?></span>
+                    <?php else : ?>
+                    <span class="red">Rp <?php echo number_format($produk['harga_produk'], 0, ',', '.') ?></span>
+                    <?php endif; ?>
+                </div>
                 <div class="price"><strong>Stok:</strong> <span class="red"><?php echo $produk['stok_produk'] ?> buah</span></div>
                 <?php echo anchor("keranjang_belanja/tambah/{$produk['id_produk']}", img(array('src' => "images/order_now.gif", 'border' => '0')), array('class' => 'more')) ?>
                 <div class="clear"></div>
