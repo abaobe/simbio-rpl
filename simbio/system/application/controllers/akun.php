@@ -102,7 +102,10 @@ class Akun extends Controller {
                 $userdata = $q->row_array();
                 $this->session->set_userdata($userdata);
 
-                redirect('akun/user');
+                if($this->input->post('aksi') == 'langsung_ke_checkout')
+                    redirect('checkout/member');
+                else
+                    redirect('akun/user');
             }
             else
             {

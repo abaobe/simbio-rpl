@@ -12,7 +12,7 @@
                 <form id="account" enctype="multipart/form-data" method="post" action="">
                     <p>Pilihan checkout:</p>
                     <label style="cursor: pointer;" for="register">
-                        <input type="radio" value="register" name="account" disabled="disabled">
+                        <input type="radio" value="register" name="account">
                         <b>Daftar sebagai member</b></label>
                     <br>
                     <label style="cursor: pointer;" for="guest">
@@ -29,7 +29,7 @@
         <div style="float: right; display: inline-block; width: 49%;">
             <div style="background: none repeat scroll 0% 0% rgb(247, 247, 247); border: 1px solid rgb(221, 221, 221); padding: 10px; min-height: 210px;">
                 <h3>Saya seorang member.</h3>
-                <form id="login" enctype="multipart/form-data" method="post" action="http://localhost/opencart/index.php?route=account/login">
+                <?php echo form_open('akun/login') ?>
                     <p>Silakan login terlebih dahulu.</p>
                     <br>
                     <b>Username:</b><br>
@@ -40,7 +40,8 @@
                     <input type="password" name="password">
                     <br>
                     <br/>
-                    <input type="submit" name="login" value="Login"/>
+                    <input type="submit" name="login_submit" value="Login"/>
+                    <input type="hidden" name="aksi" value="langsung_ke_checkout"/>
                 </form>
             </div>
         </div>

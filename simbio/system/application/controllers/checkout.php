@@ -22,6 +22,10 @@ class Checkout extends Controller {
             {
                 redirect('checkout/tamu');
             }
+            else
+            {
+                redirect('akun/registrasi');
+            }
         }
 
         if($this->cart->total() == 0) redirect('home');

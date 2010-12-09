@@ -62,4 +62,28 @@
 
 </div>
 
+<div class="right_box">
+
+    <div class="title"><span class="title_icon"><img src="images/promosi.jpg" alt="" title="" /></span>Statistik 2010</div>
+
+    <?php
+
+    $daftar_pemesanan = $this->M_statistik->get_pemesanan_per_bulan('2010');
+    $bulan = array('', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
+
+    echo "<ul>";
+    foreach ($daftar_pemesanan as $stat)
+    {
+        echo "<li>";
+        echo "Bulan " . $bulan[$stat['bulan']] . " : <br/>";
+        echo "<strong>" . $stat['jumlah'] . " pemesanan</strong>";
+        echo "</li>";
+    }
+    echo "</ul>";
+
+    ?>
+
+</div>
+
+
 

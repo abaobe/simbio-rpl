@@ -108,7 +108,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('M_produk', 'M_keranjang');
+$autoload['model'] = array('M_produk', 'M_keranjang', 'M_statistik');
 
 
 
