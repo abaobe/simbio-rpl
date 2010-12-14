@@ -59,9 +59,9 @@
                                 <a href="ubah-password" title="" <?php if(strpos($_SERVER['REQUEST_URI'], 'ubah-password') != FALSE) echo "class='current_page'" ?>>Ubah Password</a>
                             </li>
                         </ul>
-                        <form method="get" class="searchform" action="">
+                        <form method="get" class="searchform" action="kumpul-latihan/cari-soal.php">
                             <span class="left">&nbsp;</span>
-                            <input type="text" value="Cari soal" name="s" class="s" onfocus="if (this.value == 'Cari soal') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Cari soal';}" />
+                            <input type="text" value="<?php if(isset($_GET['q'])) echo $_GET['q']; else echo "Cari soal" ?>" name="q" class="s" onfocus="if (this.value == 'Cari soal') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Cari soal';}" />
                             <span class="right"><input type="submit" class="searchsubmit" value="Go" /></span>
 
                         </form>

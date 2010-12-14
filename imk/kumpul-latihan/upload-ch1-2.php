@@ -6,6 +6,17 @@ $judul_halaman = "Upload Chapter 1";
 include '../header.php';
 ?>
 
+<style type="text/css">
+
+.ok {
+    color: #006e28;
+}
+
+.error {
+    color: #dd3c10;
+}
+
+</style>
 
 <div id="maincontent">
     <div id="content">
@@ -43,18 +54,23 @@ include '../header.php';
                                 <?php for($i = 1; $i <= 10; $i++) : ?>                                
                                     <tr style="background-color: <?php echo $i%2 ? '#EEE' : '#FFF' ?>;">
                                         <td width="150"><code style="font-weight: bold">&nbsp;pjj01<?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?>.c</code></td>
-                                        <td style="padding: 6px 0px">: 
-                                            <input type="file" size="30" id="pjj010<?php echo $i ?>"/>
+                                        <td style="padding: 6px 0px">:
+                                            <?php if ($i != 7 && $i != 8) : ?>
+                                            <span style="line-height: 25px" class="ok">Berhasil diupload dan <em>compile</em></span>
+                                            <?php else : ?>
+                                            <span style="line-height: 25px" class="error">Gagal di-<em>compile</em>. Silakan perbaiki dan upload ulang:</span><br/>
+                                            &nbsp;&nbsp;<input type="file" size="30"/>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                 <?php endfor; ?>
                                 </table>
                                 <hr/>
-                                <form action="kumpul-latihan/upload-ch1-2.php">
+                                <form action="kumpul-latihan/upload-ch1-3.php">
                                 <table>
                                     <tr>
-                                        <td width="150" style="color: #888">Klik untuk mengupload &raquo;</td>
-                                        <td>&nbsp;&nbsp;<input id="upload_button" type="submit" class="button" value="Upload"/></td>
+                                        <td width="150" style="color: #888"></td>
+                                        <td>&nbsp;&nbsp;<input id="upload_button" type="submit" class="button" value="Upload ulang"/></td>
                                     </tr>
                                 </table>
                                 </form>
