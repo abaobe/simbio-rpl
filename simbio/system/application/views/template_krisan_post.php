@@ -6,6 +6,6 @@ Berhasil
 
 <p>Pesan Anda telah dikirimkan, dan akan ditampilkan setelah diterima oleh administrator. Terima kasih atas kritik dan saran Anda.</p>
 
-<p><?php echo anchor('home/kritik_saran', '&laquo; Kembali') ; ?></p>
+<p><?php echo anchor('kritik_saran', '&laquo; Kembali') ; ?></p>
 
 <?php endif; ?>

@@ -128,13 +128,20 @@ class Akun extends Controller {
     {
         $this->session->sess_destroy();
 
+        redirect('akun/logout_ok');
+    }
+
+    function logout_ok()
+    {
         $data['judul'] = "Akun - Logout";
         $data['judul_konten'] = "Anda telah logout";
         $data['template_konten'] = 'template_akun_logout';
 
         $this->load->vars($data);
         $this->load->view('template');
+
     }
+
 
     function user()
     {

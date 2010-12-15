@@ -130,7 +130,7 @@ class Home extends Controller {
                     $udata['ip'] = $_SERVER['REMOTE_ADDR'];
                 }
 
-                if ($this->M_krisan->tambahkan($udata)) redirect('home/kritik_saran_ok');
+                if ($this->M_krisan->tambahkan($udata)) redirect('kritik_saran_ok');
 
             }
 
@@ -140,15 +140,15 @@ class Home extends Controller {
         // tampilkan
 
 
-        $mulai = $this->uri->segment(3, 0);
+        $mulai = $this->uri->segment(2, 0);
         $limit_per_halaman = 10;
 
         $data['daftar_krisan'] = $this->M_krisan->get_entri_publik($mulai, $limit_per_halaman);
 
-        $paging['base_url']     = site_url('home/kritik_saran');
+        $paging['base_url']     = site_url('kritik_saran');
         $paging['total_rows']   = $this->M_krisan->jumlah_data_hasil;
         $paging['per_page']     = $limit_per_halaman;
-        $paging['uri_segment']  = 3;
+        $paging['uri_segment']  = 2;
         $paging['next_link'] 	= 'Berikutnya &raquo;';
         $paging['prev_link'] 	= '&laquo; Sebelumnya ';
         $paging['first_link']   = '&lsaquo; Awal';
