@@ -46,4 +46,30 @@ class M_krisan extends Model {
         return $this->db->insert_id();
     }
 
+    function get_semua_krisan($mulai = 0, $sebanyak = 10)
+    {
+        $data = array();
+
+        $this->db->order_by('id', 'desc');
+        $this->db->limit($sebanyak, $mulai);
+
+        $n = $this->db->query("SELECT COUNT(*) AS jumlah FROM `tb_kritik_saran`");
+        $n = $n->row_array();
+        $n = $n['jumlah'];
+
+        $q = $this->db->get('tb_kritik_saran');
+        if($q->num_rows() > 0)
+        {
+            foreach ($q->result_array() as $row)
+            {
+              $data[] = $row;
+            }
+        }
+
+        $this->jumlah_data_hasil = $n;
+
+        $q->free_result();
+        return $data;
+    }
+
 }

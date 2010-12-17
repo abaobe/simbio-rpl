@@ -43,6 +43,8 @@
 $route['default_controller'] = "home";
 $route['scaffolding_trigger'] = "";
 
+$route['admin'] = "admin/home";
+
 $route['kritik_saran'] = "home/kritik_saran";
 $route['kritik_saran/(:num)'] = "home/kritik_saran/$1";
 $route['kritik_saran_ok'] = "home/kritik_saran_ok";

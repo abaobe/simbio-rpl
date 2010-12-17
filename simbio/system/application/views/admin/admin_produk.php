@@ -21,7 +21,7 @@ Klik "Edit" untuk mengedit informasi produk maupun menghapusnya.
     <?php $i = 1; foreach ($daftar_produk as $produk) : ?>
     <tr>
         <td><?php echo $i; ?></td>
-        <td><?php echo $produk['nama_produk']; ?></td>
+        <td><?php echo anchor("produk/detail/{$produk['id_produk']}/".url_title($produk['nama_produk']), $produk['nama_produk'], array('target' => '_blank')) ?></td>
         <td><?php echo $produk['stok_produk']; ?></td>
         <td style="text-align: right">Rp <?php echo number_format($produk['harga_produk'], 0, ',', '.') ?></td>
         <td style="text-align: right"><?php echo ($produk['diskon'] == 0) ? "-" : $produk['diskon'] . "%"; ?></td>

@@ -30,7 +30,7 @@ Klik "Edit" untuk  mengedit informasi user, maupun menghapusnya.
         <td><?php echo $user['no_telepon']; ?></td>
         <td><?php echo $user['no_ktp']; ?></td>
         <td><?php echo $user['email']; ?></td>
-        <td><?php echo ($user['aktif']) ? 'Ya' : 'Tidak'; ?></td>
+        <td><?php echo ($user['aktif']) ? '<span style="color:green">Ya</span>' : '<span style="color: red">Tidak</span>'; ?></td>
         <td><?php echo $user['tanggal_registrasi']; ?></td>
         <td>
             <?php echo anchor('admin/user/edit/' . $user['id_user'], "Edit"); ?>
