@@ -1,16 +1,22 @@
 <?php if($this->session->userdata('id_user')) : ?>
 <div class="cart">
     Anda login sebagai <strong><?php echo $this->session->userdata('nama_lengkap') ?></strong>
-
+    <br/>
     <br/>
     <span class="red"><strong><?php echo anchor('akun', 'Akun saya') ?></strong></span>
     |
     <span class="red"><strong><?php echo anchor('akun/logout', 'Logout') ?></strong></span>
 
 </div>
+<?php else : ?>
+<div class="cart">
+    Anda belum login.
+    <span class="red"><strong><?php echo anchor('akun/login', 'Klik di sini untuk login &raquo;') ?></strong></span>
+
+</div>
+<?php endif; ?>
 
 <br/>
-<?php endif; ?>
 
 <div class="cart">
     <div class="title"><span class="title_icon"><img src="images/cart2.jpg" alt="" title="" /></span>Keranjang</div>
