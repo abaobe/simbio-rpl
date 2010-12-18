@@ -6,6 +6,9 @@ class Kritik_saran extends Controller {
     {
         parent::Controller();
         $this->load->model('M_krisan', 'krisan');
+
+        if(!$this->session->userdata('admin_login'))
+            redirect('admin/login');
     }
 
 

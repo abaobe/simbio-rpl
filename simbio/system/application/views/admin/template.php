@@ -14,7 +14,7 @@
     <div id="header">
         <div id="menu">
             <ul>
-                <?php $this->load->view('admin/menu') ?>
+                <?php if($this->session->userdata('admin_login')) $this->load->view('admin/menu') ?>
             </ul>
             <p>&nbsp;</p>
         </div>

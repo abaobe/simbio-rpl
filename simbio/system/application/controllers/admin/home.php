@@ -5,6 +5,10 @@ class Home extends Controller {
     function Home()
     {
         parent::Controller();
+        $this->load->model('M_statistik', 'statistik');
+
+        if(!$this->session->userdata('admin_login'))
+            redirect('admin/login');
     }
 
 
@@ -17,6 +21,5 @@ class Home extends Controller {
         $this->load->vars($data);
         $this->load->view('admin/template');
     }
-
 
 }

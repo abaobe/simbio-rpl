@@ -1,5 +1,9 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+$config['admin_username'] = "admin";
+$config['admin_password'] = "simbio123";
+
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

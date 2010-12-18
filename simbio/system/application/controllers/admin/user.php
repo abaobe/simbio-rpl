@@ -6,6 +6,9 @@ class User extends Controller {
     {
         parent::Controller();
         $this->load->model('M_user', 'user');
+
+        if(!$this->session->userdata('admin_login'))
+            redirect('admin/login');
     }
 
 

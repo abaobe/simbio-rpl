@@ -6,6 +6,9 @@ class Pesanan extends Controller {
     {
         parent::Controller();
         $this->load->model('M_pesanan', 'pesanan');
+
+        if(!$this->session->userdata('admin_login'))
+            redirect('admin/login');
     }
 
 

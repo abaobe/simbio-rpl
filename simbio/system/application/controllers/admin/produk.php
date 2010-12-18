@@ -5,6 +5,10 @@ class Produk extends Controller {
     function Produk()
     {
         parent::Controller();
+        $this->load->helper('directory');
+
+        if(!$this->session->userdata('admin_login'))
+            redirect('admin/login');
     }
 
     function index()
